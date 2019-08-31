@@ -1,7 +1,7 @@
 <?php
 
 use Elementor\Controls_Manager;
-use Elementor\Scheme_Color;
+use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 
 if ( ! defined('ABSPATH') )
@@ -91,6 +91,11 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 			],
 		]);
 
+		$this->add_group_control(Group_Control_Typography::get_type(), [
+			'name'     => 'typography',
+			'selector' => '{{WRAPPER}} a',
+		]);
+
 		$this->end_controls_section();
 	}
 
@@ -107,8 +112,6 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 
 		echo '<div class="jhdc-branding-withlove">';
 
-		echo "<h3>H3</h3>";
-
 		//$url   = $settings["url"];
 		$url   = "https://jimmyhowe.com";
 		$color = $settings["color"];
@@ -123,8 +126,6 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 	{
 		?>
         <div class="jhdc-branding-withlove">
-
-            <h3>H3</h3>
 
             <a href='https://jimmyhowe.com/'
                style='{{{ settings.color }}}'
