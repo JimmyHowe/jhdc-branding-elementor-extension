@@ -107,12 +107,13 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 
 		echo '<div class="jhdc-branding-withlove">';
 
+		echo "<h3>H3</h3>";
+
 		//$url   = $settings["url"];
 		$url   = "https://jimmyhowe.com";
 		$color = $settings["color"];
 
 		echo "<a href='{$url}'
-				 style='color: {$color}'
  				 target='_blank'>Made with ❤ by JimmyHowe.com</a>";
 
 		echo '</div>';
@@ -123,7 +124,9 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 		?>
         <div class="jhdc-branding-withlove">
 
-            <a href='{{{ settings.url }}}'
+            <h3>H3</h3>
+
+            <a href='https://jimmyhowe.com/'
                style='{{{ settings.color }}}'
                target='_blank'>Made with ❤ by JimmyHowe.com</a>
 
