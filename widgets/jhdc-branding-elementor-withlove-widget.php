@@ -61,7 +61,7 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 	 */
 	public function get_categories()
 	{
-		return [ 'basic' ];
+		return [ 'jhdc-elementor-widgets' ];
 	}
 
 	/**
@@ -107,7 +107,8 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 
 		echo '<div class="jhdc-branding-withlove">';
 
-		$url   = $settings["url"];
+		//$url   = $settings["url"];
+		$url   = "https://jimmyhowe.com";
 		$color = $settings["color"];
 
 		echo "<a href='{$url}'

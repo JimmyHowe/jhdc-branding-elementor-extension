@@ -7,7 +7,6 @@
  * @author            Jimmy Howe
  * @copyright         2019 JimmyHowe.com
  * @license           GPL-2.0-or-later
- *
  * @wordpress-plugin
  * Plugin Name:       JHDC Branding Elementor Extension
  * Plugin URI:        https://jimmyhowe.com/products/plugins/jhdc-branding-elementor-extension
@@ -170,8 +169,8 @@ final class JHDC_Branding_Elementor_Extension
 		}
 
 		$message = sprintf(/* translators: 1: Plugin name 2: Elementor */ esc_html__('"%1$s" requires "%2$s" to be installed and activated.',
-			'jhdc-branding-elementor-extension'),
-			'<strong>' . esc_html__('JHDC Elementor Brand Extension', 'jhdc-branding-elementor-extension') . '</strong>',
+			'jhdc-branding-elementor-extension'), '<strong>' . esc_html__('JHDC Elementor Brand Extension',
+				'jhdc-branding-elementor-extension') . '</strong>',
 			'<strong>' . esc_html__('Elementor', 'jhdc-branding-elementor-extension') . '</strong>');
 
 		printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
@@ -192,8 +191,8 @@ final class JHDC_Branding_Elementor_Extension
 		}
 
 		$message = sprintf(/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */ esc_html__('"%1$s" requires "%2$s" version %3$s or greater.',
-			'jhdc-branding-elementor-extension'),
-			'<strong>' . esc_html__('JHDC Elementor Brand Extension', 'jhdc-branding-elementor-extension') . '</strong>',
+			'jhdc-branding-elementor-extension'), '<strong>' . esc_html__('JHDC Elementor Brand Extension',
+				'jhdc-branding-elementor-extension') . '</strong>',
 			'<strong>' . esc_html__('Elementor', 'jhdc-branding-elementor-extension') . '</strong>',
 			self::MINIMUM_ELEMENTOR_VERSION);
 
@@ -215,9 +214,10 @@ final class JHDC_Branding_Elementor_Extension
 		}
 
 		$message = sprintf(/* translators: 1: Plugin name 2: PHP 3: Required PHP version */ esc_html__('"%1$s" requires "%2$s" version %3$s or greater.',
-			'jhdc-branding-elementor-extension'),
-			'<strong>' . esc_html__('JHDC Elementor Brand Extension', 'jhdc-branding-elementor-extension') . '</strong>',
-			'<strong>' . esc_html__('PHP', 'jhdc-branding-elementor-extension') . '</strong>', self::MINIMUM_PHP_VERSION);
+			'jhdc-branding-elementor-extension'), '<strong>' . esc_html__('JHDC Elementor Brand Extension',
+				'jhdc-branding-elementor-extension') . '</strong>',
+			'<strong>' . esc_html__('PHP', 'jhdc-branding-elementor-extension') . '</strong>',
+			self::MINIMUM_PHP_VERSION);
 
 		printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
 	}
@@ -249,3 +249,13 @@ final class JHDC_Branding_Elementor_Extension
 }
 
 JHDC_Branding_Elementor_Extension::instance();
+
+function add_elementor_widget_categories( $elements_manager )
+{
+	$elements_manager->add_category('jhdc-elementor-widgets', [
+		'title' => __('JimmyHowe.com Widgets', 'jhdc-branding-elementor-extension'),
+		'icon'  => 'fa fa-home',
+	]);
+}
+
+add_action('elementor/elements/categories_registered', 'add_elementor_widget_categories');
