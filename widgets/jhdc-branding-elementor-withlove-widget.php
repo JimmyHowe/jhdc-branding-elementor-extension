@@ -1,7 +1,7 @@
 <?php
 
 use Elementor\Controls_Manager;
-use Elementor\Scheme_Color;
+use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 
 if ( ! defined('ABSPATH') )
@@ -61,7 +61,7 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 	 */
 	public function get_categories()
 	{
-		return [ 'basic' ];
+		return [ 'jhdc-elementor-widgets' ];
 	}
 
 	/**
@@ -91,6 +91,11 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 			],
 		]);
 
+		$this->add_group_control(Group_Control_Typography::get_type(), [
+			'name'     => 'typography',
+			'selector' => '{{WRAPPER}} a',
+		]);
+
 		$this->end_controls_section();
 	}
 
@@ -107,11 +112,11 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 
 		echo '<div class="jhdc-branding-withlove">';
 
-		$url   = $settings["url"];
+		//$url   = $settings["url"];
+		$url   = "https://jimmyhowe.com";
 		$color = $settings["color"];
 
 		echo "<a href='{$url}'
-				 style='color: {$color}'
  				 target='_blank'>Made with ❤ by JimmyHowe.com</a>";
 
 		echo '</div>';
@@ -122,7 +127,7 @@ class JHDC_Elementor_WithLove_Widget extends Widget_Base
 		?>
         <div class="jhdc-branding-withlove">
 
-            <a href='{{{ settings.url }}}'
+            <a href='https://jimmyhowe.com/'
                style='{{{ settings.color }}}'
                target='_blank'>Made with ❤ by JimmyHowe.com</a>
 
